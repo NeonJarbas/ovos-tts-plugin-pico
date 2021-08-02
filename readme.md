@@ -5,7 +5,7 @@ OpenVoiceOS TTS plugin for [PicoTTS](https://github.com/naggety/picotts)
 ## Install
 
 ```bash
-pip install jarbas_plugin_pico_tts
+pip install ovos-tts-plugin-pico
 ```
 
 `pico2wave` needs to be available, in a pi this can be installed with
@@ -23,7 +23,7 @@ you can also install from [source](https://github.com/naggety/picotts)
 
 ```json
   "tts": {
-    "module": "pico_tts_plugin"
+    "module": "ovos-tts-plugin-pico"
  }
 ```
 
@@ -34,8 +34,8 @@ you can also set it explicitly to one of `"de-DE", "es-ES", "fr-FR", "it-IT", "e
 
 ```json
   "tts": {
-    "module": "pico_tts_plugin",
-    "pico_tts_plugin": {
+    "module": "ovos-tts-plugin-pico",
+    "ovos-tts-plugin-pico": {
       "voice": "en-US"
     }
  }

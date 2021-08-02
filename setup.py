@@ -1,18 +1,18 @@
 #!/usr/bin/env python3
 from setuptools import setup
 
-PLUGIN_ENTRY_POINT = 'pico_tts_plugin = jarbas_tts_plugin_pico:PicoTTS'
+PLUGIN_ENTRY_POINT = 'ovos-tts-plugin-pico = ovos_tts_plugin_pico:PicoTTS'
 setup(
-    name='jarbas_plugin_pico_tts',
+    name='ovos-tts-plugin-pico',
     version='0.0.1',
     description='pico tts plugin for mycroft',
-    url='https://github.com/JarbasLingua/pico-tts-plugin',
+    url='https://github.com/OpenVoiceOS/ovos-tts-plugin-pico',
     author='JarbasAi',
     author_email='jarbasai@mailfence.com',
     license='Apache-2.0',
-    packages=['jarbas_tts_plugin_pico'],
+    packages=['ovos_tts_plugin_pico'],
     install_requires=["phoneme_guesser",
-                      'ovos-plugin-manager>=0.0.1a4'],
+                      'ovos-plugin-manager>=0.0.1a7'],
     zip_safe=True,
     include_package_data=True,
     classifiers=[
