@@ -4,7 +4,7 @@ from setuptools import setup
 PLUGIN_ENTRY_POINT = 'ovos-tts-plugin-pico = ovos_tts_plugin_pico:PicoTTS'
 setup(
     name='ovos-tts-plugin-pico',
-    version='0.0.1',
+    version='0.0.2',
     description='pico tts plugin for mycroft',
     url='https://github.com/OpenVoiceOS/ovos-tts-plugin-pico',
     author='JarbasAi',
@@ -12,7 +12,7 @@ setup(
     license='Apache-2.0',
     packages=['ovos_tts_plugin_pico'],
     install_requires=["phoneme_guesser",
-                      'ovos-plugin-manager>=0.0.1a7'],
+                      'ovos-plugin-manager>=0.0.1a12'],
     zip_safe=True,
     include_package_data=True,
     classifiers=[
