@@ -4,7 +4,7 @@ from setuptools import setup
 PLUGIN_ENTRY_POINT = 'ovos-tts-plugin-pico = ovos_tts_plugin_pico:PicoTTS'
 setup(
     name='ovos-tts-plugin-pico',
-    version='0.0.2',
+    version='0.0.3',
     description='pico tts plugin for mycroft',
     url='https://github.com/OpenVoiceOS/ovos-tts-plugin-pico',
     author='JarbasAi',

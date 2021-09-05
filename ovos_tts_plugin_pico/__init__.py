@@ -4,10 +4,6 @@ from ovos_plugin_manager.templates.tts import TTS, TTSValidator
 
 class PicoTTS(TTS):
     def __init__(self, *args, **kwargs):
-        if "lang" not in kwargs:
-            kwargs["lang"] = "en-us"
-        if "config" not in kwargs:
-            kwargs["config"] = {}
         super().__init__(*args, **kwargs, audio_ext="wav",
                          validator=PicoTTSValidator(self))
         if not self.voice:
