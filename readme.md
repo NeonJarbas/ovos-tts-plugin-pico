@@ -40,3 +40,18 @@ you can also set it explicitly to one of `"de-DE", "es-ES", "fr-FR", "it-IT", "e
     }
  }
 ```
+
+
+## Docker
+
+build it
+```bash
+docker build . -t ovos/pico
+```
+
+run it
+```bash
+docker run -p 8080:9666 ovos/pico
+```
+
+use it `http://localhost:8080/synthesize/hello`
