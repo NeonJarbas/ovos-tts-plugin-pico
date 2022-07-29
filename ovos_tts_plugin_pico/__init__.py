@@ -1,5 +1,7 @@
 import subprocess
+
 from ovos_plugin_manager.templates.tts import TTS, TTSValidator
+
 
 def get_voice_from_lang(lang):
     if lang.startswith("de"):
@@ -15,6 +17,7 @@ def get_voice_from_lang(lang):
             return "en-GB"
         else:
             return "en-US"
+
 
 class PicoTTS(TTS):
     def __init__(self, *args, **kwargs):
@@ -57,6 +60,12 @@ class PicoTTSValidator(TTSValidator):
     def get_tts_class(self):
         return PicoTTS
 
+
+PicoTTSPluginConfig = {
+    lang: [
+        {"voice": "default", "gender": "female"}
+    ] for lang in ["de", "es", "fr", "en", "it"]
+}
 
 if __name__ == "__main__":
     e = PicoTTS()
