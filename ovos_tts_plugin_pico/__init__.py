@@ -72,7 +72,7 @@ class PicoTTSValidator(TTSValidator):
 
 PicoTTSPluginConfig = {
     lang: [
-        {"voice": "default", "gender": "female", "lang": lang}
+        {"voice": "default", "gender": "female", "lang": lang, "display_name": f"Pico ({lang})"}
     ] for lang in ["de", "es", "fr", "en", "it"]
 }
 
