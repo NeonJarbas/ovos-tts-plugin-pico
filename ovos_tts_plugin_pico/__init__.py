@@ -1,5 +1,5 @@
 import subprocess
-
+from distutils.spawn import find_executable
 from ovos_plugin_manager.templates.tts import TTS, TTSValidator
 
 
@@ -25,6 +25,7 @@ class PicoTTS(TTS):
                          validator=PicoTTSValidator(self))
         if not self.voice:
             self.voice = get_voice_from_lang(self.lang)
+        self.pico = find_executable("pico2wave")
 
     def get_tts(self, sentence, wav_file, lang=None):
         if lang:
@@ -32,9 +33,19 @@ class PicoTTS(TTS):
         else:
             voice = self.voice
         subprocess.call(
-            ['pico2wave', '-l', voice, "-w", wav_file, sentence])
+            [self.pico, '-l', voice, "-w", wav_file, sentence])
 
         return wav_file, None
+
+    @property
+    def available_languages(self) -> set:
+        """Return languages supported by this TTS implementation in this state
+        This property should be overridden by the derived class to advertise
+        what languages that engine supports.
+        Returns:
+            set: supported languages
+        """
+        return set(PicoTTSPluginConfig.keys())
 
 
 class PicoTTSValidator(TTSValidator):
@@ -49,9 +60,7 @@ class PicoTTSValidator(TTSValidator):
             raise Exception('PicoTTS only supports ' + str(voices))
 
     def validate_connection(self):
-        try:
-            subprocess.call(['pico2wave', '--help'])
-        except:
+        if not find_executable("pico2wave"):
             raise Exception(
                 'PicoTTS is not installed. Run: '
                 '\nsudo apt-get install libttspico0\n'
@@ -63,7 +72,7 @@ class PicoTTSValidator(TTSValidator):
 
 PicoTTSPluginConfig = {
     lang: [
-        {"voice": "default", "gender": "female"}
+        {"voice": "default", "gender": "female", "lang": lang}
     ] for lang in ["de", "es", "fr", "en", "it"]
 }
 
